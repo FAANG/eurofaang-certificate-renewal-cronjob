@@ -1,0 +1,8 @@
+deployment.yaml
+acme-*
+admin.yaml
+letsencrypt_ingress.yml
+config
+eurofaang_tls_secret.yaml
+test.py
+.idea/

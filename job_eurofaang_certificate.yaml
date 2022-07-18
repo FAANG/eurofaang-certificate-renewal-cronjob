@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: eurofaang-certificate
+spec:
+  schedule: "0 1 * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: eurofaang-certificate
+            image: yroochun/update-eurofaang-certificate:v1
+            imagePullPolicy: Always
+            command: ["python", "update_eurofaang_certificate.py"]
+          restartPolicy: OnFailure
